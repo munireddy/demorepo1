@@ -2,4 +2,5 @@
 int main () {
       printf("This is a first sample\n");
       printf("This is a second sample\n");
+      printf("This is a Third sample\n");
 }

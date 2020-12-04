@@ -1,6 +1,6 @@
 pipeline {
     agent { label 'slave05' }
-    
+    // Start of different stages in a apipe line
     stages{
         stage('Checkout') {
             steps {
@@ -13,20 +13,26 @@ pipeline {
             steps {
                 echo "In List stage"
                 sh 'ls -ltr'
-                echo "End of clone stage"
+                echo "ENd of clone stage"
             }    
+        }
+        stage('createFile'){
+            steps{
+                sh '''touch file2
+                echo "Text in file " >> file2.txt'''
+            }
         }
         stage('Build') {
             steps {
                 echo "In build stage"
-               gcc file1.c
+                sh 'gcc file1.c'
                 echo "End of build stage"
             }    
         }
         stage('Execute') {
             steps {
                 echo "In Execute stage"
-               ./a.out
+                sh './a.out'
                 echo "End of Execute stage"
             }    
         }

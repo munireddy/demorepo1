@@ -6,6 +6,7 @@ pipeline {
             steps {
                 echo "B4 Code clone"
                 git 'https://github.com/munireddy/demorepo1.git'
+                sleep 5
                 echo "AF Code clone"
             }    
         }
@@ -20,6 +21,7 @@ pipeline {
             steps{
                 sh '''touch file2
                 echo "Text in file " >> file2.txt'''
+                sleep 5
             }
         }
         stage('Build') {
